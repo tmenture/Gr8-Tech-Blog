@@ -5,7 +5,7 @@ const sequelize = require('./config/connection');
 const path = require('path');
 
 // Cutstom helper call
-const helper = require('./utils/');
+const helpers = require('./utils/helpers');
 
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helper });
