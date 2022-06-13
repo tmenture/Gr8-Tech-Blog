@@ -7,6 +7,7 @@ and search through existiing posts, they cannot post themselves, or leave commen
 and once they return, and log back in, they are presented with all their posts and can navigate freely throug the site.
 
 ## Installation / How To Use:
+(This project is unfinished but it will be soon!)
 * If you do not already have it installed, install node.js (Here is the link to the download: https://nodejs.org/en/download/)
 * Clone this repository to your machine (& switch to the directory you just created)
 * Run npm i in your console to install necessary packages to run databse
