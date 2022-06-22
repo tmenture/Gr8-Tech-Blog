@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+a {
+    text-decoration: underline;
+    color: lightskyblue;
+    font-weight: bold;
+    transition: color .1s;
+}
+
+a:hover {
+    color: blue;
+}
+
+button {
+    background-color: blue;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+textarea, input {
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+textarea {
+    min-width: 40%;
+    min-height: 100px;
+}
+
+form label {
+    display: block;
+}
+
+nav {
+    padding: 1.2rem;
+    text-align: right;
+    white-space: pre;
+}

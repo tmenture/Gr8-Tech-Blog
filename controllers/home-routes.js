@@ -54,7 +54,7 @@ router.get('/post/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'title', 'creatd_at', 'post_content'],
+        attributes: ['id', 'title', 'created_at', 'post_content'],
         include: [
             {
                 model: Comment,

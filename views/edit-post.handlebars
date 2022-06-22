@@ -13,7 +13,7 @@
         <div>
             Posted By You On: {{format_date post.created_at}}
             |
-            <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+            <a href="/posts/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>
         <button type="submit">Save Post</button>
         <button type="button" class="delete-post-btn">Delete Post</button>
@@ -33,4 +33,4 @@
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/jsavascript/comment.js"></script>
+<script src="/javascript/comment.js"></script>

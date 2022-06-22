@@ -19,7 +19,7 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [5]
+                len: [1]
             }
         },
         user_id: {

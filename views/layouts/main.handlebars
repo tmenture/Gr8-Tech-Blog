@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gr8 Tech Blog</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gr8 Tech Blog</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
 
-<body>
-    <div class="container">
-        <header>
-            <h1>
-                <a href="/">Gr8 Tech Blog</a>
-            </h1>
-            <nav>
-                <span><a href="/">Home</a></span>
-                {{#if loggedIn}}
-                <a href="/dashboard">Dashboard</a>
-                <button id="logout" class="btn-no-stye">Logout</button>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}
-            </nav>
-        </header>
+    <body>
+        <div class="container">
+            <header>
+                <h1>
+                    <a href="/">Gr8 Tech Blog</a>
+                </h1>
+                <nav>
+                    <span><a href="/">Home</a></span>
+                    {{#if loggedIn}}
+                    <a href="/dashboard">Dashboard</a>
+                    <button id="logout" class="btn-no-stye">Logout</button>
+                    {{else}}
+                    <a href="/login">Login</a>
+                    {{/if}}
+                </nav>
+            </header>
 
-        <main>
-            {{{ body }}}
-        </main>
+            <main>
+                {{{ body }}}
+            </main>
 
-        <footer>
-            Thank you for visiting my blog!
-        </footer>
-    </div>
+            <footer>
+                Thank you for visiting my blog!
+            </footer>
+        </div>
     
-    {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
-    {{/if}}
+        {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+        {{/if}}
 
-</body>
+    </body>
 </html>

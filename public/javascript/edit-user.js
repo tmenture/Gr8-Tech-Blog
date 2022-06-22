@@ -7,7 +7,7 @@ async function editUser(event) {
     let email = document.querySelector('input[name="password"]').value.trim();
     if (email.length) email = '"email": "' + email + '"';
 
-    let password = document.querySelector('input[name"password"]').value.trim();
+    let password = document.querySelector('input[name="password"]').value.trim();
     if (!password.length) {
         alert('You must enter your password to confirm changes, or enter new password');
         return;
