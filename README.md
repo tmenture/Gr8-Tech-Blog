@@ -4,7 +4,7 @@
 This is a blog website for anything tech. A user can create an account to gain access to a dashboard where they can post about tech,
 leave comments on other users posts, edit previouslly made posts, and delete posts. A user that is not logged in may only view the homepage 
 and search through existiing posts, they cannot post themselves, or leave comments. Once a user is done they can logout and go about there day,
-and once they return, and log back in, they are presented with all their posts and can navigate freely throug the site.
+and once they return, and log back in, they are presented with all their posts and can navigate freely through the site.
 
 ## Installation / How To Use:
 (This project is unfinished but it will be soon!)
