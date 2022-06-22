@@ -70,30 +70,19 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/created/', withAuth, (req,res) => {
-    Post.findAll({
+router.get('/edit-user', withAuth, (req, res) => {
+    User.findOne({
+        attributes: { exclude: ['passsword'] },
         where: {
-            user_id: req.session.user_id
-        },
-        attributes: ['id', 'title', 'created_at', 'post_content'],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username', 'github']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username', 'github']
-            }
-        ]
-    }).then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-
-        res.render('created-post', { posts, loggedIn: true });
+            id: req.session.user_id
+        }
+    }).then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with that id' });
+            return;
+        }
+        const user = dbUserData.get({ plain: true });
+        res.render('edit-user', {user, loggedIn: true });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);

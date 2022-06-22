@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const session = require('express-session');
 const withAuth = require('../../utils/auth');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 router.get('/', (req, res) => {
     User.findAll({
-        atributes: { exclude: ['pasword'] }
+        atributes: { exclude: ['password'] }
     }).then(dbUserData => res.json(dbUserData))
     .catch(err => {
         console.log(err);
@@ -25,7 +27,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model:Comment,
-                attributes: ['id', 'comment_text', 'created_at'],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: Post,
                     attributes: ['title']
@@ -50,8 +52,16 @@ router.post('/', (req,res) => {
         email: req.body.email,
         password: req.body.password,
         github: req.body.github
-    }).then(dbUserData => res.json(dbUserData))
-    .catch(err => {
+    }).then(dbUserData => {
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.github = dbUserData.github;
+            req.session.loggedIn = true;
+
+            res.json(dbUserData);
+        });
+    }).catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
@@ -87,7 +97,7 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/logout', withAuth, (req, res) => {
-    if (req.sesion.loggedIn) {
+    if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });
@@ -103,7 +113,7 @@ router.put('/:id', withAuth, (req, res) => {
             id: req.params.id
         }
     }).then(dbUserData => {
-        if (!dbUserData) {
+        if (!dbUserData[0]) {
             res.status(404).json({ messege: 'No user found with that id' });
             return;
         }
