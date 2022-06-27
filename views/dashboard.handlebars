@@ -1,6 +1,6 @@
-<section class="row">
-    <div class="column">
-        <h2>Create New Post</h2>
+<section>
+    <div>
+        <h2 class="card-header">Create New Post</h2>
         <form class="new-post-form">
             <div>
                 <label for="post-title">Title:</label>
@@ -10,22 +10,25 @@
                 <label for="post-text">Post Content:</label>
                 <textarea id="post-content" name="post-content"></textarea>
             </div>
-            <button type="submit" class="btn">Create</button>
+            <button class="nav-item" type="submit" class="btn btn-no-style">Create</button>
         </form>
     </div>
-    <div class="column">
-        <h2>About Me:</h2>
-        {{> users }}
+</section>
+
+<section class="card">
+     <div>
+        <h2 class="card-header">About Me:</h2>
+        <p class="card-body">{{> users }}</p>
     </div>
 </section>
 
 {{#if posts.length}}
-<section>
-    <h2>Your Posts:</h2>
-    <ol>
+<section class="card">
+    <h2 class="card-header">Your Posts:</h2>
+    <ol class="list-group">
         {{#each posts as |post|}}
-        <li>
-            {{> posts-info post}}
+        <li class="list-group-item card-body">
+            <p>{{> posts-info post}}</p>
             <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
         </li>
         {{/each}}

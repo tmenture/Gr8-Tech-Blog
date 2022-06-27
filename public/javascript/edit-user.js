@@ -23,7 +23,7 @@ async function editUser(event) {
     const response = await fetch(`/api/users/${id}`, {
         method: 'PUT',
         body: JSON.stringify(userUpdated),
-        headers: { 'Content-Types': 'application/json' }
+        headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {

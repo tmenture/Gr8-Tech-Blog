@@ -11,7 +11,7 @@ body, html {
 }
 
 a {
-    text-decoration: underline;
+    text-decoration: none;
     color: lightskyblue;
     font-weight: bold;
     transition: color .1s;
@@ -19,18 +19,6 @@ a {
 
 a:hover {
     color: blue;
-}
-
-button {
-    background-color: blue;
-    border: 1px solid black;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: blue;
 }
 
 textarea, input {
